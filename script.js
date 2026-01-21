@@ -235,7 +235,8 @@ function checkBanWords() {
             const wordLower = word.toLowerCase();
             if (textLower.includes(wordLower)) {
                 foundWords.push(word);
-                const regex = new RegExp(`(${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const regex = new RegExp(`(?!<[^>]*?)(${escapedWord})(?![^<]*?>)`, 'gi');
                 highlightedText = highlightedText.replace(regex, '<span class="highlight">$1</span>');
             }
         });
