@@ -469,9 +469,10 @@ footer {
     }
 
     #symbolPanel {
-        width: calc(100% - 48px);
-        right: 24px;
-        left: 24px;
+        width: 320px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     #fab {
